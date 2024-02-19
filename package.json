@@ -1,0 +1,26 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Shunchaki test uchun",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon index.js",
+    "dev": "nodemon index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "cors": "^2.8.5",
+    "curl": "^0.1.4",
+    "dotenv": "^16.4.4",
+    "env": "^0.0.2",
+    "express": "^4.18.2",
+    "joi": "^17.12.1",
+    "mongodb": "^6.3.0",
+    "mongoose": "^8.1.2",
+    "multer": "^1.4.5-lts.1",
+    "nodemon": "^3.0.3"
+  }
+}
