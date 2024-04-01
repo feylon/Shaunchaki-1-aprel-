@@ -1,6 +1,7 @@
 import {Router} from "express";
 import User from "../models/index.js";
 import Joi from "joi";
+import  Jwt  from "jsonwebtoken";
 const router = Router();
 
 router.post("/", async(req,res)=>{
@@ -28,8 +29,7 @@ try{
         res.status(401).send({info:"Ro'yxatdan o'tilgan email"});
         return;
     }
-    await User.create({ism,familiya,age,login:login.toLowerCase(),password});
-    
+    let user = await User.create({ism,familiya,age,login:login.toLowerCase(),password});
     res.status(201).send({success:true});
 
 }

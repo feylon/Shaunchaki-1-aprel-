@@ -2,6 +2,7 @@ import express from "express";
 import Joi from "joi";
 import cors from "cors"
 import bucrypt from "bcrypt";
+import * as dotenv from "dotenv" ;
 import mongoose from "mongoose";
 
 //*routerlar
@@ -11,7 +12,10 @@ import edit from "./routers/edit.js";
 import delete1 from "./routers/delete.js";
 import getdata from "./routers/getdata.js";
 const app = express();
+
+dotenv.config();
 app.use(express.json())
+app.use(express.static("public"))
 app.use(cors());
 
 //*routerlar
@@ -38,7 +42,7 @@ app.use("/get",getdata);
     }
 })();
 
-
+console.log(process.env.PORT)
 app.listen(4100,()=>{
     console.log("Ishga tushdi")
 })

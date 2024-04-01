@@ -1,6 +1,7 @@
 import { Router } from "express";
 import Data from "../models/data3.js"
 import User from "../models/index.js";
+import  Jwt  from "jsonwebtoken";
 import Joi from "joi";
 const router = Router();
 router.post("/",async(req,res)=>{
@@ -30,7 +31,9 @@ try {
     let data = await Data.find();
     console.log(data)
     // await Data.findByIdAndUpdate("65cdbacee01bdcd9e2c1fe2a",{ism:"uzgardi"});
-    res.status(200).send(data);
+    const token =  Jwt.sign({user:UserExist._id},"salom",{expiresIn:"1m"})
+
+    res.header("-x-auth",token).status(200).send(data);
 } catch (error) {
     console.log(error);
 }
